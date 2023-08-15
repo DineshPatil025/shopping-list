@@ -10,6 +10,7 @@ const addItemBtn = document.getElementById('addItemBtn');
 const clearBtn = document.getElementById('clearBtn');
 const filterItemCtrl = document.getElementById('filterItem');
 const itemCount = document.getElementById('itemCount');
+const searchCount = document.getElementById('searchCount');
 
 
 let itemsArr = [];
@@ -20,8 +21,10 @@ cl(itemsArr.length)
 if (JSON.parse(localStorage.getItem('itemsArr'))) {
     itemsArr = JSON.parse(localStorage.getItem('itemsArr'))
     templating(itemsArr)
+
 } else {
     templating(itemsArr)
+
 }
 
 function itemDispToggle() {
@@ -32,7 +35,7 @@ function itemDispToggle() {
         itemCount.style.color = "green"
 
 
-    }else{
+    } else {
         filterItemCtrl.classList.add('d-none')
         clearBtn.classList.add('d-none')
         itemCount.style.color = "red"
@@ -205,19 +208,33 @@ const onClearBtn = () => {
 
     // localStorage.removeItem("itemsArr")
     // clearBtn.classList.add("d-none")
+
     templating(itemsArr)
 }
 
 const onKeyUpFilterItem = (keys) => {
 
     let filtKeys = filterItemCtrl.value.toLowerCase()
-    cl(filtKeys)
-
     let filtArr = itemsArr.filter((item) => {
         return item.itemName.toLowerCase().includes(filtKeys)
     })
-    cl(filtArr)
+    searchCount.classList.remove("d-none")
+
+    if (filterItemCtrl.value == 0) {
+        searchCount.classList.add("d-none")
+        templating(filtArr)
+    } else {
+        if (filtArr.length === 0) {
+            searchCount.innerHTML = "No items are matching to your search"
+            searchCount.style.color = "red"
+        } else {
+            searchCount.innerHTML = `${filtArr.length} items found as per your search`
+        }
+    }
     templating(filtArr)
+
+
+
 }
 
 

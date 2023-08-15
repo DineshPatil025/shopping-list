@@ -26,12 +26,13 @@
         <!-- ADD ITEM SECTION -->
         <div class="row">
             <div class="col-md-6 offset-3">
-                <h4 class="text-center text-uppercase py-2"><i
-                        class="fa-solid fa-cart-shopping fa-1x"></i> shopping list</h4>
+                <h4 class="text-center text-uppercase py-2"><i class="fa-solid fa-cart-shopping fa-1x"></i> shopping
+                    list</h4>
                 <form id="addItemfrm">
                     <div class="form-group">
                         <label for="item" class="sr-only">Enter Item</label>
-                        <input type="text" required placeholder="Enter Item" class="enterItem  w-100 p-2" id="enterItem">
+                        <input type="text" required placeholder="Enter Item" class="enterItem  w-100 p-2"
+                            id="enterItem">
                     </div>
                     <button type="submit" class="btn btn-dark addItemBtn mb-4" id="addItemBtn">+ Add Item</button>
                     <button type="button" class="btn btn-success updateItemBtn mb-4 d-none" id="updateItemBtn"><span><i
@@ -42,13 +43,14 @@
                 <p class="alert alert-info text-center  my-2" id="itemCount"> </p>
                 <div class="form-group">
                     <label for="filterItem" class="sr-only"> Search Item</label>
-                    <input type="text" placeholder="Filter Item" class="filterItem w-100 p-2 d-none" id="filterItem">
+                    <input type="text" placeholder="Search Item" class="filterItem w-100 p-2 d-none" id="filterItem">
                 </div>
 
 
 
 
                 <!-- FILTER AND DISPLAY ITEM SECTION -->
+                <p class="alert alert-info text-center  my-2 d-none" id="searchCount"> </p>
                 <div class="row mb-2" id="itemListContainer">
 
                     <!-- <div class="col-6 item-border mb-2">
